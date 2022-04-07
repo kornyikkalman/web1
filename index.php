@@ -9,4 +9,4 @@ require 'libs/FrontController.php';
 **/
 
 $frontController = new FrontController();
-$frontController->startKernel();
+$frontController->run();

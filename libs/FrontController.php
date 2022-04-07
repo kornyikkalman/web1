@@ -9,7 +9,7 @@ class FrontController {
         return $this;
     }
 
-    static function startKernel() {
+    static function run() {
         require 'libs/View.php';
         $config = require 'libs/Configuration.php';
 

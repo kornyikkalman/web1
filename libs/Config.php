@@ -5,22 +5,35 @@ class Config {
     private  $vars;
     private static $instance;
 
+    /**
+     * Konstruktor -> mindig megadunk egy kulcs, és egy hozzátartozó érték párt.
+     **/
     public function __construct() {
         $this->vars = array();
     }
 
+    /**
+     *Beállitsuk a megadott kulcsoknak az értékeket
+     **/
     public function set($key, $value) {
         if(!isset($this->vars[$key])) {
             $this->vars[$key] = $value;
         }
     }
 
+    /**
+     *A get methoddal eltudjuk érni bárhonnan a projektből, hogy melyik beállitásnak mit adtunk meg.
+     * Igy tudunk kölönböző teszteket végezni.
+     **/
     public function get($key) {
         if(isset($this->vars[$key])) {
             return $this->vars[$key];
         }
     }
 
+    /**
+     * Singleton method - igy biztosak lehetünk benne, hogy nem lesz két konfigurációnk egyszerre.
+     **/
     public static function singleton() {
         if(!isset(self::$instance)) {
             $tmpClass = __CLASS__;
