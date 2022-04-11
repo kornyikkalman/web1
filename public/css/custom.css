@@ -1,0 +1,18 @@
+.navbar-light .navbar-nav .active>.nav-link {
+    border-bottom: 3px solid #F4C127;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    top: 75vh; 
+    margin-top: 20px;
+    width: 100%;
+}
+
+.center-form {
+    position:relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

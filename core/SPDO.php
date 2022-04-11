@@ -15,7 +15,7 @@ class SPDO extends  PDO {
         );
     }
 
-    public function singleton() {
+    public static function singleton() {
         if(self::$instance==null) {
             self::$instance = new self();
         }

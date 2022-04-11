@@ -9,6 +9,6 @@ class LoginController {
     }
 
     public function showLoginView () {
-        $this->view->show('view/loginView.php', null);
+        $this->view->show('loginView.php', null);
     }
 }

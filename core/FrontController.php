@@ -10,8 +10,8 @@ class FrontController {
     }
 
     static function run() {
-        require 'libs/View.php';
-        $config = require 'libs/Configuration.php';
+        require 'core/View.php';
+        $config = require 'core/Configuration.php';
 
         $controllerName = !empty($_GET['controller']) ? $_GET['controller'] . 'Controller' : self::DEFAULT_CONTROLLER;
         $actionName = !empty($_GET['action']) ? $_GET['action'] : self::DEFAULT_ACTION;

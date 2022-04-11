@@ -1,12 +1,11 @@
 <?php
 
-class EmailModel {
-
-    protected $database;
+class ImageModel {
+    
+    protected $database; 
 
     public function __construct () {
-        require_once 'core/SPDO.php';
+        require_once 'core/SPDO.php'; 
         $this->database = SPDO::singleton();
     }
-
 }

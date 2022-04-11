@@ -1,5 +1,5 @@
 <?php
-require 'libs/FrontController.php';
+require 'core/FrontController.php';
 
 /**
  * @var FrontController $frontController - létrehozunk egy $frontController objektumot, amivel meghívjuk az osztály egyetlen metódusát

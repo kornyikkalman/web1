@@ -1,6 +1,6 @@
 <?php
 
-require 'libs/Config.php';
+require 'core/Config.php';
 
 /**
  * Létre hozzuk a $config objektumot a singleton konstruktor segitsegvel.
@@ -27,7 +27,7 @@ $config->set('viewFolder', 'view/');
 **/
 
 $config->set('dbhost', 'localhost');
-$config->set('dbname', 'PeacePlayers');
+$config->set('dbname', 'peaceplayers');
 $config->set('dbuser', 'root');
 $config->set('dbpass', 'root');
 

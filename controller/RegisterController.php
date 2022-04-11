@@ -8,7 +8,8 @@ class RegisterController {
         $this->userModel = new UserModel();
     }
 
-    public function showRegisterView() {
-        $this->view->show('view/registerView.php', null);
+    public function showRegisterView () {
+        $this->view->show('registerView.php', null);
     }
+
 }
