@@ -6,10 +6,10 @@
 Programtervezési minta: Front Controller 
 
 Feladatok:
-- [x] Az alkalmazás magjaként szolgáló mikroszolgáltatás feltöltése
+- [x] Az alkalmazás magjaként szolgáló mikrokeretrendszer feltöltése
 - [ ] Modellek elkészítése
 - [ ] Controllerek elkészítése
-- [ ] Javascript írása a kliens oldalra az adatok megjelenítéhez és a küldéséhez szerver oldalra
+- [ ] Javascript írása a kliens oldalra (kliens oldali ellenőrzés, reszponzivitás)
 - [ ] Egész alkalmazás tesztelése - vizuálisan, szerkezetileg, esetleges PHP nyelvi újítások bevezetése
 - [ ] Lehetséges veszélyforrások elhárítása
 - [ ] Teljes Dokumentáció (Request életciklus, megoldásokat, jó-rossz, stb.)
