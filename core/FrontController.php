@@ -13,19 +13,19 @@ class FrontController {
         require 'core/View.php';
         $config = require 'core/Configuration.php';
 
-        $controllerName = !empty($_GET['controller']) ? $_GET['controller'] . 'Controller' : self::DEFAULT_CONTROLLER;
-        $actionName = !empty($_GET['action']) ? $_GET['action'] : self::DEFAULT_ACTION;
+        $controllername = !empty($_GET['controller']) ? $_GET['controller'] . 'Controller' : self::DEFAULT_CONTROLLER;
+        $actionname = !empty($_GET['action']) ? $_GET['action'] : self::DEFAULT_ACTION;
 
-        $pathController = $config->get('controllerFolder') . $controllerName . '.php';
+        $pathcontroller = $config->get('controllerfolder') . $controllername . '.php';
 
-        is_file($pathController) ? require $pathController : die('Controller osztály nem található - 404');
+        is_file($pathcontroller) ? require $pathcontroller : die('Controller osztály nem található - 404');
 
-        if(is_callable(array($controllerName, $actionName)) == true) {
-            trigger_error($controllerName . '->' . $actionName . ' nem létezik.', E_USER_NOTICE);
+        if(is_callable(array($controllername, $actionname)) == true) {
+            trigger_error($controllername . '->' . $actionname . ' nem létezik.', E_USER_NOTICE);
             return false;
         }
 
-        $controller = new $controllerName();
-        $controller->$actionName();
+        $controller = new $controllername();
+        $controller->$actionname();
     }
 }

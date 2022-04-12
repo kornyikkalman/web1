@@ -8,7 +8,7 @@ class RegisterController {
         $this->imageModel = new ImageModel();
     }
 
-    public function showGalleryView() {
-        $this->view->show('galleryView.php', null);
+    public function renderGalleryView() {
+        $this->view->render('galleryview.php', null);
     }
 }

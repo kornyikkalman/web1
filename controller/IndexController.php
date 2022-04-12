@@ -5,7 +5,7 @@ class IndexController {
         $this->view = new View();
     }
 
-    public function showIndexView () {
-        $this->view->show('indexView.php', null);
+    public function renderIndexView () {
+        $this->view->render('indexview.php', null);
     }
 }

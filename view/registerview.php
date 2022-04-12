@@ -14,9 +14,11 @@
    </head>
    <body>
       <main>
+
          <?php
             include_once 'header.php';
             ?>
+
          <section class="vh-100 center-form">
             <div class="mask d-flex flex-column align-items-center justify-content-center h-100 gradient-custom-3">
                <div class="container">
@@ -25,25 +27,49 @@
                         <div class="card mt-5 mb-5" style="border-radius: 15px;">
                            <div class="card-body p-4">
                               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-                              <form>
+                              <form method="POST" id="registerform" action="?controller=Register&action=attemptRegister">
                                  <div class="form-outline mb-2">
-                                    <input type="text" id="----" class="form-control form-control-lg" />
+                                    <input type="text" id="uname" name="username" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example1cg">Username</label>
+                                        <p class="text-danger">
+                                            <?php
+                                                if(array_key_exists('username', $this->errors))
+                                                    echo $this->errors['username'];
+                                            ?>
+                                        </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="email" id="----" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example3cg">Email</label>
+                                    <input type="text" id="emaddr" name="email" class="form-control form-control-lg" />
+                                    <label class="form-label" for="email">Email</label>
+                                     <p class="text-danger">
+                                         <?php
+                                            if(array_key_exists('email', $this->errors))
+                                                echo $this->errors['email'];
+                                         ?>
+                                     </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="password" id="----" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example4cg">Password</label>
+                                    <input type="password" id="pass" name="password" class="form-control form-control-lg" />
+                                    <label class="form-label" for="password">Password</label>
+                                     <p class="text-danger">
+                                         <?php
+                                            if(array_key_exists('password', $this->errors))
+                                                echo $this->errors['password'];
+                                         ?>
+                                     </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="password" id="----" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example4cdg">Confirm Password</label>
+                                    <input type="password" id="passconf" name="confirmedpass" class="form-control form-control-lg" />
+                                    <label class="form-label" for="password">Confirm Password</label>
+                                     <p class="text-danger">
+                                         <?php
+                                            if(array_key_exists('confirmedpass',$this->errors))
+                                                echo $this->errors['confirmedpass'];
+                                         ?>
+                                     </p>
                                  </div>
                                  <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                    <button type="submit" value="submit" form="registerform" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                  </div>
                                  <p class="text-center text-muted mt-2 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
                               </form>
@@ -55,8 +81,10 @@
             </div>
          </section>
       </main>
+
       <?php
             include_once 'footer.php';
       ?>
+
    </body>
 </html>

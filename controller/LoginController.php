@@ -8,7 +8,7 @@ class LoginController {
         $this->userModel = new UserModel();
     }
 
-    public function showLoginView () {
-        $this->view->show('loginView.php', null);
+    public function renderLoginView () {
+        $this->view->render('loginview.php', null);
     }
 }

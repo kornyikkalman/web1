@@ -14,6 +14,10 @@ class UserModel {
         $this->database = SPDO::singleton();
     }
 
+    public function checkIfUserAlreadyExists ($username, $email) {
+        
+    }
+
     public function registerUser ($username, $email, $password) {
             $insert_for_register = $this->database->prepare('INSERT INTO user(username, email, password) VALUES(:username, :email, :password)');
             $insert_for_register->bindValue(":username", $username);

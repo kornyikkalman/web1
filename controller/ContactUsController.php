@@ -8,7 +8,7 @@ class RegisterController {
         $this->emailModel = new EmailModel();
     }
 
-    public function showContactView() {
-        $this->view->show('contactView.php', null);
+    public function renderContactView() {
+        $this->view->render('contactview.php', null);
     }
 }

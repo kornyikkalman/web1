@@ -8,7 +8,7 @@ class RegisterController {
         $this->emailModel = new EmailModel();
     }
 
-    public function showMessagesView() {
-        $this->view->show('messagesView.php', null);
+    public function renderMessagesView() {
+        $this->view->render('messagesview.php', null);
     }
 }

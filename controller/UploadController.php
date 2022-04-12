@@ -8,7 +8,7 @@ class UploadController {
         $this->imageModel = new ImageModel();
     }
 
-    public function showUploadView() {
-        $this->view->show('uploadView.php', null);
+    public function renderUploadView() {
+        $this->view->render('uploadview.php', null);
     }
 }

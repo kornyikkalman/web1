@@ -36,8 +36,8 @@ class Config {
      **/
     public static function singleton() {
         if(!isset(self::$instance)) {
-            $tmpClass = __CLASS__;
-            self::$instance = new $tmpClass;
+            $temporaryclass = __CLASS__;
+            self::$instance = new $temporaryclass;
         }
         return self::$instance;
     }

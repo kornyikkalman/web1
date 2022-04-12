@@ -16,9 +16,9 @@ $config = Config::singleton();
  * @param string value
  **/
 
-$config->set('controllerFolder', 'controller/');
-$config->set('modelFolder', 'model/');
-$config->set('viewFolder', 'view/');
+$config->set('controllerfolder', 'controller/');
+$config->set('modelfolder', 'model/');
+$config->set('viewfolder', 'view/');
 
 /**
  * Adatbázis beállítások

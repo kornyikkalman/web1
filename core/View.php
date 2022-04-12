@@ -2,26 +2,31 @@
 
 class View
 {
+    protected $data;
+    protected $errors;
+
     public function __construct () {
 
     }
 
-    public function show($viewName, $vars = array()) {
+    public function render($viewname) {
         $config = Config::singleton();
-        $viewPath = $config->get('viewFolder') . $viewName;
+        $viewpath = $config->get('viewfolder') . $viewname;
 
-        if(is_file($viewPath)==false) {
-            trigger_error('Az oldal:' . $viewPath . ' nem létezik', E_USER_NOTICE);
+        if(is_file($viewpath)==false) {
+            trigger_error('Az oldal:' . $viewpath . ' nem létezik', E_USER_NOTICE);
             return false;
         }
 
-        if(is_array($vars)) {
-            foreach ($vars as $key => $value) {
-                $key = $value;
-            }
-        }
+        require($viewpath);
+    }
 
-        include $viewPath;
+    public function set_data($key, $value){
+        $this->data[$key] = $value;
+    }
+
+    public function set_errors($key, $value) {
+        $this->errors[$key] = $value;
     }
 
 }
