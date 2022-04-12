@@ -27,14 +27,15 @@
                         <div class="card mt-5 mb-5" style="border-radius: 15px;">
                            <div class="card-body p-4">
                               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-                              <form method="POST" id="registerform" action="?controller=Register&action=attemptRegister">
+                              <form method="POST" id="registerform" onsubmit="return registerValidation()" action="?controller=Register&action=attemptRegister">
                                  <div class="form-outline mb-2">
                                     <input type="text" id="uname" name="username" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example1cg">Username</label>
                                         <p class="text-danger">
                                             <?php
-                                                if(array_key_exists('username', $this->errors))
-                                                    echo $this->errors['username'];
+                                                if(!empty($this->errors))
+                                                   if(array_key_exists('username', $this->errors))
+                                                       echo $this->errors['username'];
                                             ?>
                                         </p>
                                  </div>
@@ -43,8 +44,9 @@
                                     <label class="form-label" for="email">Email</label>
                                      <p class="text-danger">
                                          <?php
-                                            if(array_key_exists('email', $this->errors))
-                                                echo $this->errors['email'];
+                                             if(!empty($this->errors))
+                                                if(array_key_exists('email', $this->errors))
+                                                   echo $this->errors['email'];
                                          ?>
                                      </p>
                                  </div>
@@ -53,8 +55,9 @@
                                     <label class="form-label" for="password">Password</label>
                                      <p class="text-danger">
                                          <?php
-                                            if(array_key_exists('password', $this->errors))
-                                                echo $this->errors['password'];
+                                             if(!empty($this->errors))
+                                                if(array_key_exists('password', $this->errors))
+                                                   echo $this->errors['password'];
                                          ?>
                                      </p>
                                  </div>
@@ -63,8 +66,9 @@
                                     <label class="form-label" for="password">Confirm Password</label>
                                      <p class="text-danger">
                                          <?php
-                                            if(array_key_exists('confirmedpass',$this->errors))
-                                                echo $this->errors['confirmedpass'];
+                                             if(!empty($this->errors))
+                                                if(array_key_exists('confirmedpass',$this->errors))
+                                                   echo $this->errors['confirmedpass'];
                                          ?>
                                      </p>
                                  </div>
@@ -85,6 +89,8 @@
       <?php
             include_once 'footer.php';
       ?>
+
+      <script src="public/js/validation.js"></script>
 
    </body>
 </html>

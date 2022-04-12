@@ -2,7 +2,6 @@
 
 class RegisterController {
 
-
     public function __construct () {
         require_once 'model/UserModel.php';
         $this->view = new View();
@@ -32,5 +31,4 @@ class RegisterController {
             $this->redirectIfFailed();
         }
     }
-
 }

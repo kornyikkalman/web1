@@ -3,7 +3,7 @@
 class FrontController {
 
     const DEFAULT_CONTROLLER = "IndexController";
-    const DEFAULT_ACTION = "showIndexView";
+    const DEFAULT_ACTION = "renderIndexView";
 
     public function __construct() {
         return $this;
