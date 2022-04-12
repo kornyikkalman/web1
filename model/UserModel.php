@@ -3,19 +3,16 @@
 class UserModel {
 
     protected $database;
-    
-    /**
-     * Controllerben pedig
-     * Csak siman $this->userModel->registerUser($_POST['username'], $_POST['email'], $_POST['password]);
-     */
+    protected $errors; 
        
     public function __construct () {
         require_once 'core/SPDO.php';
         $this->database = SPDO::singleton();
     }
 
-    public function checkIfUserAlreadyExists ($username, $email) {
+    public function checkDuplicate ($username, $email) {
         
+    
     }
 
     public function registerUser ($username, $email, $password) {

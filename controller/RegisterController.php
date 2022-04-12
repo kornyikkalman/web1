@@ -25,10 +25,12 @@ class RegisterController {
             require_once 'validation/FormValidation.php';
             $validator = new FormValidation($_POST);
             $errors = $validator->validateRegisterForm();
-            foreach($errors as $key => $value) {
-                $this->view->set_errors($key, $value);
+            if(!empty($errors)) {
+                foreach($errors as $key => $value) {
+                    $this->view->set_errors($key, $value);
+                }
+                $this->redirectIfFailed();
             }
-            $this->redirectIfFailed();
         }
     }
 }
