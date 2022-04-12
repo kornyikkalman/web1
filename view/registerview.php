@@ -17,7 +17,7 @@
 
          <?php
             include_once 'header.php';
-            ?>
+         ?>
 
          <section class="vh-100 center-form">
             <div class="mask d-flex flex-column align-items-center justify-content-center h-100 gradient-custom-3">
@@ -27,10 +27,11 @@
                         <div class="card mt-5 mb-5" style="border-radius: 15px;">
                            <div class="card-body p-4">
                               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-                              <form method="POST" id="registerform" onsubmit="return registerValidation()" action="?controller=Register&action=attemptRegister">
+                              <form method="POST" novalidate name="registerform" id="registerform" action="?controller=Register&action=attemptregister">
                                  <div class="form-outline mb-2">
-                                    <input type="text" id="uname" name="username" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example1cg">Username</label>
+                                    <label class="form-label" for="username">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg mb-2" required minlength="6" />
+                                    <span class="error"></span>
                                         <p class="text-danger">
                                             <?php
                                                 if(!empty($this->errors))
@@ -40,8 +41,9 @@
                                         </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="text" id="emaddr" name="email" class="form-control form-control-lg" />
                                     <label class="form-label" for="email">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control form-control-lg mb-2" required minlength="8" />
+                                    <span class="error"></span>
                                      <p class="text-danger">
                                          <?php
                                              if(!empty($this->errors))
@@ -51,8 +53,9 @@
                                      </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="password" id="pass" name="password" class="form-control form-control-lg" />
                                     <label class="form-label" for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control form-control-lg mb-2" required minlength="8"/>
+                                    <span class="error"></span>
                                      <p class="text-danger">
                                          <?php
                                              if(!empty($this->errors))
@@ -62,18 +65,19 @@
                                      </p>
                                  </div>
                                  <div class="form-outline mb-2">
-                                    <input type="password" id="passconf" name="confirmedpass" class="form-control form-control-lg" />
                                     <label class="form-label" for="password">Confirm Password</label>
+                                    <input type="password" id="confirmedpassword" name="confirmedpassword" class="form-control form-control-lg mb-2" required minlength="8"/>
+                                    <span class="error"></span>
                                      <p class="text-danger">
                                          <?php
                                              if(!empty($this->errors))
-                                                if(array_key_exists('confirmedpass',$this->errors))
-                                                   echo $this->errors['confirmedpass'];
+                                                if(array_key_exists('confirmedpassword',$this->errors))
+                                                   echo $this->errors['confirmedpassword'];
                                          ?>
                                      </p>
                                  </div>
                                  <div class="d-flex justify-content-center">
-                                    <button type="submit" value="submit" form="registerform" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                    <button type="submit" form="registerform" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                  </div>
                                  <p class="text-center text-muted mt-2 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
                               </form>
@@ -90,7 +94,7 @@
             include_once 'footer.php';
       ?>
 
-      <script src="public/js/validation.js"></script>
+      <script src="js/registrationvalidation.js"></script>
 
    </body>
 </html>

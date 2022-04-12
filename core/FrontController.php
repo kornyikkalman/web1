@@ -24,7 +24,6 @@ class FrontController {
             trigger_error($controllername . '->' . $actionname . ' nem létezik.', E_USER_NOTICE);
             return false;
         }
-
         $controller = new $controllername();
         $controller->$actionname();
     }

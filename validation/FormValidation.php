@@ -20,7 +20,7 @@ class FormValidation {
         $email_to_validate = trim($this->data['email']);
 
         if(!preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email_to_validate)) {
-            $this->addErorrs('email', 'Field must be an email adress');
+            $this->addErorrs('email', 'Field entry must be an email adress');
         }
     }
 
@@ -28,18 +28,18 @@ class FormValidation {
         $username_to_valide = trim($this->data['username']);
 
         if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $username_to_valide)) {
-            $this->addErorrs('username', 'Username must be 6-12 charachters, and cant contain special charachters!');
+            $this->addErorrs('username', 'Username can be maximum 12 charachters and cant contain special charachters!');
         }
     }
 
     private function validatePassword () {
         $password_to_validate = trim($this->data['password']);
-        $password_confirmation = trim($this->data['confirmedpass']);
+        $password_confirmation = trim($this->data['confirmedpassword']);
 
         if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $password_to_validate)) {
-            $this->addErorrs('password', 'Password must be atleast 8 chars, and contain 1 upparcase char, and 1 number!');
+            $this->addErorrs('password', 'Password must contain 1 upparcase char, and 1 number!');
         } else if($password_to_validate != $password_confirmation) {
-            $this->addErorrs('confirmedpass', 'Passwords must match!');
+            $this->addErorrs('confirmedpassword', 'Passwords must match!');
         }
     }
 
