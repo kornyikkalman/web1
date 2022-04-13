@@ -3,7 +3,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item active ml-5">
@@ -25,12 +24,20 @@
       </li>
      </ul>
      <ul class="navbar-nav ml-auto ms-auto">
+     <?php if (session_status() == PHP_SESSION_NONE) : ?>
       <li class="nav-item">
-        <a class="nav-link font-weight-bold" href="#">Login</a>
+        <a class="nav-link font-weight-bold" href="?controller=Login&action=renderloginview">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link font-weight-bold" href="?controller=Register&action=renderregisterview">Register</a>
       </li>
+      <?php endif; ?>
+      <?php if (!isset($_SESSION)) : ?>
+      <?php elseif($_SESSION['loggedIn']==true) : ?>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" href="?controller=Logout&action=logout">Logout</a>
+      </li> 
+     <?php endif; ?>
     </ul>
   </div>
 </nav>

@@ -29,19 +29,20 @@ class RegisterController {
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $duplicate_check = $this->userModel->possibleDuplicate($username, $email);
+            $duplicate_check = $this->userModel->checkForDuplicate($username, $email);
             
             $errors = array_merge($validation_errors, $duplicate_check);
 
-            if(!empty($errors)) {
+            if(!empty($errors)) {  
                 foreach($errors as $key => $value) {
                     $this->view->set_errors($key, $value);
                 }
                 $this->redirectIfFailed();
             } else {
-                session_start(); 
+                session_start();
                 $this->userModel->registerUser($username, $email, $password);
                 $_SESSION['username'] = $username;
+                $_SESSION['loggedIn'] = true;
                 $this->redirectOnSuccess();
             }
             

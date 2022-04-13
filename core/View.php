@@ -2,8 +2,8 @@
 
 class View
 {
-    protected $data;
-    protected $errors;
+    protected $data = [];
+    protected $errors = [];
 
     public function __construct () {
 
@@ -17,7 +17,7 @@ class View
             trigger_error('Az oldal:' . $viewpath . ' nem létezik', E_USER_NOTICE);
             return false;
         }
-
+        
         require($viewpath);
     }
 

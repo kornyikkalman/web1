@@ -83,7 +83,7 @@
                                  <div class="d-flex justify-content-center">
                                     <button type="submit" form="registerform" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                  </div>
-                                 <p class="text-center text-muted mt-2 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+                                 <p class="text-center text-muted mt-2 mb-0">Have already an account? <a href="?controller=Login&action=renderloginview" class="fw-bold text-body"><u>Login here</u></a></p>
                               </form>
                            </div>
                         </div>
@@ -98,7 +98,7 @@
             include_once 'footer.php';
       ?>
 
-      <script src="js/registrationvalidation.js"></script>
+      <script src="js/validation/registrationvalidation.js"></script>
 
    </body>
 </html>
