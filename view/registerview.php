@@ -30,13 +30,15 @@
                               <form method="POST" novalidate name="registerform" id="registerform" action="?controller=Register&action=attemptregister">
                                  <div class="form-outline mb-2">
                                     <label class="form-label" for="username">Username</label>
-                                    <input type="text" id="username" name="username" class="form-control form-control-lg mb-2" required minlength="6" />
+                                    <input type="text" id="username" name="username" class="form-control form-control-lg mb-2" required  minlength="6" />
                                     <span class="error"></span>
                                         <p class="text-danger">
                                             <?php
                                                 if(!empty($this->errors))
                                                    if(array_key_exists('username', $this->errors))
                                                        echo $this->errors['username'];
+                                                   else if(array_key_exists('username_exists', $this->errors))
+                                                       echo $this->errors['username_exists'];
                                             ?>
                                         </p>
                                  </div>
@@ -49,6 +51,8 @@
                                              if(!empty($this->errors))
                                                 if(array_key_exists('email', $this->errors))
                                                    echo $this->errors['email'];
+                                                else if(array_key_exists('email_exists', $this->errors))
+                                                   echo $this->errors['email_exists'];
                                          ?>
                                      </p>
                                  </div>

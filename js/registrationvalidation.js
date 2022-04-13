@@ -73,16 +73,16 @@ function showErrorForUsername() {
   if(username.validity.valueMissing) {
     usernameError.textContent = 'Username field cant be empty!';
   } else if (username.validity.tooShort) {
-    usernameError.textContent = 'Username is too short!';
+    usernameError.textContent = 'Username input is too short!';
   }
-  confirmedpasswordError.className = 'error active';
+  usernameError.className = 'error active';
 }
 
 function showErrorForEmail () {
   if(email.validity.valueMissing) {
-    emailError.textContent = 'Password field cant be empty!';
+    emailError.textContent = 'Email field cant be empty!';
   } else if (email.validity.tooShort) {
-    emailError.textContent = 'Password is too short!'; 
+    emailError.textContent = 'Email input is too short!'; 
   }
   emailError.className = 'error active';
 }
@@ -92,7 +92,7 @@ function showErrorForPassword () {
   if(password.validity.valueMissing) {
     passwordError.textContent = 'Password field cant be empty!';
   } else if (password.validity.tooShort) {
-    passwordError.textContent = 'Password is too short!'; 
+    passwordError.textContent = 'Password input is too short!'; 
   }
   passwordError.className = 'error active';
 }
@@ -101,7 +101,7 @@ function showErrorForConfirmedPassword () {
   if(confirmedpassword.validity.valueMissing) {
     confirmedpasswordError.textContent = 'Password confirmation cant be empty!';
   } else if (confirmedpassword.validity.tooShort) {
-    confirmedpasswordError.textContent = 'Confirmed password is too short!';
+    confirmedpasswordError.textContent = 'Confirmed password input is too short!';
   }
-  usernameError.className = 'error active';
+  confirmedpasswordError.className = 'error active';
 }

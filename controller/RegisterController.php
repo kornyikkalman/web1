@@ -12,7 +12,7 @@ class RegisterController {
         $this->view->render('registerview.php');
     }
 
-    public function redirectAfterSuccess () {
+    public function redirectOnSuccess () {
         $this->view->render('indexview.php');
     }
 
@@ -24,13 +24,27 @@ class RegisterController {
         if(!empty($_POST)) {
             require_once 'validation/FormValidation.php';
             $validator = new FormValidation($_POST);
-            $errors = $validator->validateRegisterForm();
+            $validation_errors = $validator->validateRegisterForm();
+            
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $duplicate_check = $this->userModel->possibleDuplicate($username, $email);
+            
+            $errors = array_merge($validation_errors, $duplicate_check);
+
             if(!empty($errors)) {
                 foreach($errors as $key => $value) {
                     $this->view->set_errors($key, $value);
                 }
                 $this->redirectIfFailed();
+            } else {
+                session_start(); 
+                $this->userModel->registerUser($username, $email, $password);
+                $_SESSION['username'] = $username;
+                $this->redirectOnSuccess();
             }
+            
         }
     }
 }
