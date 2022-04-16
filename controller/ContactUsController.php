@@ -1,5 +1,8 @@
 <?php
 
+require '/validator/FomrValidation.php';
+require '/utility/Mailer.php';
+
 class RegisterController {
 
     public function __construct () {
@@ -22,7 +25,7 @@ class RegisterController {
 
     public function attemptToSendMail () {
         if(!empty($_POST)) {
-            require_once '/validator/FomrValidation.php';
+
             $validator = new FormValidation($_POST);
             $email_errors = $validator->validateContactForm();
             
@@ -37,7 +40,10 @@ class RegisterController {
                 $this->redirectIfFailed();
             } else {
                 $this->emailModel->saveEmail($username, $email, $message);
+                $contact_message = new Mailer('peaceplayers.org', 'New message from your site.', $message);
+                $contact_message->send();
                 $this->redirectOnSuccess();
             }
+        }
     }
 }

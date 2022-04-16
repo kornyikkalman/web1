@@ -31,5 +31,4 @@ $config->set('dbname', 'peaceplayers');
 $config->set('dbuser', 'root');
 $config->set('dbpass', 'root');
 
-//Lehet ez sem kell ide.
 return $config;

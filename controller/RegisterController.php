@@ -40,9 +40,9 @@ class RegisterController {
                 $this->redirectIfFailed();
             } else {
                 session_start();
-                $this->userModel->registerUser($username, $email, $password);
                 $_SESSION['username'] = $username;
                 $_SESSION['logged_in_to_peace_web'] = true;
+                $this->userModel->registerUser($username, $email, $password);
                 $this->redirectOnSuccess();
             }
             
