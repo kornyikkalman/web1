@@ -3,7 +3,7 @@
 class SPDO extends  PDO {
     private static $instance = null;
 
-    public function __construct() {
+    public function __construct () {
 
         $config = Config::singleton();
 
@@ -15,7 +15,7 @@ class SPDO extends  PDO {
         );
     }
 
-    public static function singleton() {
+    public static function singleton () {
         if(self::$instance==null) {
             self::$instance = new self();
         }

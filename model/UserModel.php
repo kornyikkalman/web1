@@ -53,11 +53,11 @@ class UserModel {
     }
 
     public function registerUser ($username, $email, $password) {
-            $insert_for_register = $this->database->prepare('INSERT INTO user(username, email, password) VALUES(:username, :email, :password)');
-            $insert_for_register->bindValue(":username", $username, PDO::PARAM_STR);
-            $insert_for_register->bindValue(":email", $email, PDO::PARAM_STR);
-            $insert_for_register->bindValue(":password", md5($password), PDO::PARAM_STR);
-            $insert_for_register->execute();
+        $insert_for_register = $this->database->prepare('INSERT INTO user(username, email, password) VALUES(:username, :email, :password)');
+        $insert_for_register->bindValue(":username", $username, PDO::PARAM_STR);
+        $insert_for_register->bindValue(":email", $email, PDO::PARAM_STR);
+        $insert_for_register->bindValue(":password", md5($password), PDO::PARAM_STR);
+        $insert_for_register->execute();
     }
 
     public function getUser ($email, $password) {

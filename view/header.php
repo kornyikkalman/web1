@@ -33,7 +33,7 @@
       </li>
       <?php endif; ?>
       <?php if (!isset($_SESSION)) : ?>
-      <?php elseif($_SESSION['loggedIn']==true) : ?>
+      <?php elseif($_SESSION['logged_in_to_peace_web'] == true) : ?>
       <li class="nav-item">
         <a class="nav-link font-weight-bold" href="?controller=Logout&action=logout">Logout</a>
       </li> 

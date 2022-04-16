@@ -9,7 +9,7 @@ class View
 
     }
 
-    public function render($viewname) {
+    public function render ($viewname) {
         $config = Config::singleton();
         $viewpath = $config->get('viewfolder') . $viewname;
 
@@ -21,11 +21,11 @@ class View
         require($viewpath);
     }
 
-    public function set_data($key, $value){
+    public function set_data ($key, $value){
         $this->data[$key] = $value;
     }
 
-    public function set_errors($key, $value) {
+    public function set_errors ($key, $value) {
         $this->errors[$key] = $value;
     }
 

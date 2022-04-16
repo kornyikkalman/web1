@@ -13,7 +13,9 @@ class LogoutController {
     }
 
     public function logOut () {
-        $_SESSION['loggedIn'] = false;
+        session_start();
+        $_SESSION['logged_in_to_peace_web'] = false;
+        session_destroy();
         $this->redirectOnSucess();
     }
 }

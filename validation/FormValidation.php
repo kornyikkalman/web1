@@ -5,14 +5,19 @@ class FormValidation {
     private $data = [];
     private $errors = [];
 
-    public function __construct($post_data) {
-        $this->data = $post_data;
+    public function __construct ($form_data) {
+        $this->data = $form_data;
     }
 
     public function validateRegisterForm () {
         $this->validateEmail();
         $this->validateUsername();
         $this->validatePassword();
+        return $this->errors;
+    }
+
+    public function validateContactForm () {
+        $this->validateMessage();
         return $this->errors;
     }
 
@@ -41,6 +46,14 @@ class FormValidation {
         } else if($password_to_validate != $password_confirmation) {
             $this->addErorrs('confirmedpassword', 'Passwords must match!');
         }
+    }
+
+    private function validateMessage () {
+        $msg_to_validate = trim($this->data['message']);
+        if(! preg_match('/{1,255}/', $msg_to_validate) {
+            $this->addErorrs('Message can be maximum 255 characters long.');
+        }
+
     }
 
     private function addErorrs ($key, $value) {

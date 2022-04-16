@@ -21,10 +21,11 @@ class LoginController {
     }
 
     public function attemptLogin () {
-        if(!empty($_POST)) {
+        if(! empty($_POST)) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $check_for_errors = $this->userModel->checkIfUserExists($email, $password);
+            
             if(!empty($check_for_errors)) {
                 foreach($check_for_errors as $key => $value) {
                     $this->view->set_errors($key, $value);
@@ -34,7 +35,11 @@ class LoginController {
                 session_start();
                 $userdata = $this->userModel->getUser($email, $password);
                 $_SESSION['username'] = $userdata['username'];
-                $_SESSION['loggedIn'] = true;
+                /**
+                 * @var 'logged_it_to_peace_web' - ezzel a kulcsal különbséget tudunk tenni a
+                 * mobil és web app közti sessionökkel, ha egy motort használnának.
+                 */
+                $_SESSION['logged_in_to_peace_web'] = true;
                 $this->redirectOnSucess();
             }
         }

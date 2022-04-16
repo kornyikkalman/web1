@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 class RegisterController {
 
@@ -21,7 +21,7 @@ class RegisterController {
     }
 
     public function attemptRegister () {
-        if(!empty($_POST)) {
+        if(! empty($_POST)) {
             require_once 'validation/FormValidation.php';
             $validator = new FormValidation($_POST);
             $validation_errors = $validator->validateRegisterForm();
@@ -33,7 +33,7 @@ class RegisterController {
             
             $errors = array_merge($validation_errors, $duplicate_check);
 
-            if(!empty($errors)) {  
+            if(! empty($errors)) {  
                 foreach($errors as $key => $value) {
                     $this->view->set_errors($key, $value);
                 }
@@ -42,7 +42,7 @@ class RegisterController {
                 session_start();
                 $this->userModel->registerUser($username, $email, $password);
                 $_SESSION['username'] = $username;
-                $_SESSION['loggedIn'] = true;
+                $_SESSION['logged_in_to_peace_web'] = true;
                 $this->redirectOnSuccess();
             }
             

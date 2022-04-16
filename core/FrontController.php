@@ -5,11 +5,11 @@ class FrontController {
     const DEFAULT_CONTROLLER = "IndexController";
     const DEFAULT_ACTION = "renderIndexView";
 
-    public function __construct() {
+    public function __construct () {
         return $this;
     }
 
-    static function run() {
+    static function run () {
         require 'core/View.php';
         $config = require 'core/Configuration.php';
 
