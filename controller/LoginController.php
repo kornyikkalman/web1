@@ -33,13 +33,13 @@ class LoginController {
                 $this->redirectIfFailed();
             } else {
                 session_start();
+                $userdata = $this->userModel->getUser($email, $password);
                 /**
                  * @var 'logged_it_to_peace_web' - ezzel a kulcsal különbséget tudunk tenni a
                  * mobil és web app közti sessionökkel, ha egy motort használnának.
                  */
                 $_SESSION['logged_in_to_peace_web'] = true;
                 $_SESSION['username'] = $userdata['username'];
-                $userdata = $this->userModel->getUser($email, $password);
                 $this->redirectOnSucess();
             }
         }

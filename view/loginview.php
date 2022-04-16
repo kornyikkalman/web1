@@ -18,6 +18,18 @@
          <?php
             include_once 'header.php';
          ?>
+
+         <?php if(! empty($this->errors)) : ?>
+         <div class="row">
+            <div class="col-md-12 col-md-offset-1">
+               <div class="alert alert-danger text-center" role="alert">
+                  <strong> 
+                     Invalid login details.
+                  </strong>
+               </div>
+            </div>
+         </div>
+         <?php endif; ?>
       
          <section class="vh-100 center-form">
             <div class="mask d-flex flex-column align-items-center justify-content-center h-100 gradient-custom-3">
