@@ -2,7 +2,7 @@
 ### 2021-2022 II. (tavasz)
 ### TANTÁRGYKÓD: L-K-GINFBAL-WEBPROG1-1-LA01
 ### MINTA: peaceplayers.org
-### KÉSZÍTETTE: ZELLEI KRISZTIÁN - MFY3QA - Kornyik Kálmán - 
+### KÉSZÍTETTE: ZELLEI KRISZTIÁN - MFY3QA - KORNYIK KÁLMÁN - 
 
 Programtervezési minta: Front Controller 
 
