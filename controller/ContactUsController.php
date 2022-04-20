@@ -40,7 +40,7 @@ class RegisterController {
                 $this->redirectIfFailed();
             } else {
                 $this->emailModel->saveEmail($username, $email, $message);
-                $contact_message = new Mailer('peaceplayers.org', 'New message from your site.', $message);
+                $contact_message = new Mailer('zebikriszti@gmail.com', 'New message from your site.', $message);
                 $contact_message->send();
                 $this->redirectOnSuccess();
             }

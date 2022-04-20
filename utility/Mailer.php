@@ -2,7 +2,7 @@
 
 class Mailer {
     
-    const sentFrom = 'peaceplayers@gmail.com';
+    const sentFrom = 'zebikriszti@gmail.com';
     public $sendTo;
     public $subject; 
     public $message;
